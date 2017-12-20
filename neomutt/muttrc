@@ -58,13 +58,16 @@ color progress    white          black
 # personality settings
 set realname = "Chris Murtagh"
 set from = "chris@retechnology.com"
+set use_from = yes
 #alternates "larry@mail.server|larry.the.cow@mail.server"
 # this file must exist, and contains your signature, comment it out if
 # you don't want a signature to be used
 set signature = ~/.dotfiles/neomutt/signature
   
-# aliases (sort of address book)
-source ~/.dotfiles/neomutt/aliases
+# aliases (using abook)
+set query_command= "abook --mutt-query '%s'"
+macro index,pager  a "<pipe-message>abook --add-email-quiet<return>" "Add this sender to Abook"
+bind editor        <Tab> complete-query
   
 # IMAP connection settings
 set mail_check=60
@@ -91,10 +94,13 @@ set time_inc=300
 
 # mailboxes we want to monitor for new mail
 mailboxes "="
-mailboxes "=Lists"
+#mailboxes "=Lists"
   
 # mailing lists for a Gentoo user (these are regexps!)
 subscribe "gentoo-.*@gentoo\\.org"
   
 # SMTP mailing configuration (for sending mail)
-set smtp_url=smtps://chris@mx1.retechnology.com:465/
+set smtp_url = "smtp://chris@retechnology.com@mx1.retechnology.com:587/"
+set ssl_force_tls = yes
+set ssl_starttls = yes
+set imap_check_subscribed = yes
