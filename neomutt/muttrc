@@ -90,6 +90,8 @@ set sidebar_width = 20
 set sidebar_folder_indent = yes
 set sidebar_short_path = yes
 
+# display index above pager
+set pager_index_lines=10
 # make the progress updates not that expensive, this will update the bar every 300ms
 set read_inc=1
 set time_inc=300
