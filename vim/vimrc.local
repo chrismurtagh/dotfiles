@@ -1,0 +1,29 @@
+" Turn on line numbering
+set number
+" Highlight current cursor line
+set cursorline
+" Auto indent
+set autoindent
+set smartindent
+set tabstop=4
+set shiftwidth=4
+set formatoptions=rn
+set expandtab
+set copyindent
+" Set CurserLine highlighting
+hi CursorLine cterm=bold ctermbg=NONE
+" Better pasting with paste mode
+"set paste
+" Mouse on
+"set mouse=a
+" Set Search Highilighting
+hi Search cterm=underline,bold ctermbg=NONE
+" Bring in  Powerline Statusline
+set rtp+=/usr/lib64/python3.5/site-packages/powerline/bindings/vim
+set laststatus=2
+set showtabline=2
+set noshowmode
+set t_Co=256
+" Show matching braces
+set showmatch
+
