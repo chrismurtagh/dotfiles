@@ -79,6 +79,7 @@ set folder=imaps://mx1.retechnology.com/
 set spoolfile=+Inbox
 set record=+Sent
 set postponed=+Drafts
+set trash = +Trash
   
 # use headercache for IMAP (make sure this is a directory for better performance!)
 set header_cache=/var/tmp/.mutt
