@@ -12,6 +12,10 @@ set menu_scroll=yes
 # we want to see some MIME types inline, see below this code listing for explanation
 auto_view application/msword
 auto_view application/pdf
+auto_view text/html
+
+# Enable mailcap
+set mailcap_path = ~/.dotfiles/neomutt/mailcap
   
 # make default search pattern to search in To, Cc and Subject
 set simple_search="~f %s | ~C %s | ~s %s"

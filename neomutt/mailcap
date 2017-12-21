@@ -2,3 +2,8 @@ application/msword; antiword '%s'; copiousoutput; description=Word Document;
 nametemplate=%s.doc
 application/pdf; pdftotext '%s' -; copiousoutput; description=PDF Document;
 nametemplate=%s.pdf
+
+text/html; qutebrowser %s && sleep 5 ; test=test -n "$DISPLAY";
+nametemplate=%s.html; needsterminal
+# text/html; lynx -dump %s ; copiousoutput; nametemplate=%s.html
+text/html; w3m -I %{charset} -T text/html ; copiousoutput; nametemplate=%s.html
