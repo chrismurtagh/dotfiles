@@ -26,4 +26,7 @@ setopt correctall
 zstyle ':completion::complete:*' use-cache 1
 # Bring in powerline
 . /usr/share/zsh/site-contrib/powerline.zsh
-. /home/chris/.zshtheme/agnoster-zsh-theme/agnoster.zsh-theme
+. ~/.zshtheme/agnoster-zsh-theme/agnoster.zsh-theme
+# Bring in autocomplete
+. ~/.zshtheme/zsh-autosuggestions/zsh-autosuggestions.zsh
+
