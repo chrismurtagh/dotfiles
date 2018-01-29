@@ -67,7 +67,7 @@ conky.text = [[
 ${font Ubuntu:size=11:style=bold}${color4}SYSTEM ${hr 2}
 ${offset 15}${font Ubuntu:size=11:style=normal}${color1}$sysname $kernel ${alignr}  $nodename
 ${offset 15}${font Ubuntu:size=11:style=normal}${color1}Battery:  ${color3}${battery_bar 5,150 BAT0} ${color3}${battery_percent BAT0}%
-${offset 15}${font Ubuntu:size=11:style=normal}${color3}${battery BAT0} ${alignc}${battery_time BAT0} ${alignr}${color1}CPU: ${color3}${hwmon 1 temp 1}C
+${offset 15}${font Ubuntu:size=11:style=normal}${color3}${battery BAT0} ${alignc}${battery_time BAT0} ${alignr}${color1}CPU: ${color3}${hwmon 1 temp 1}C  ${freq_g (1)}
 ${offset 15}${font Ubuntu:size=11:style=normal}${color1}Uptime: ${color3}$uptime ${alignr}${color1}Load: ${color3}${loadavg}
 
 # Showing CPU Graph
