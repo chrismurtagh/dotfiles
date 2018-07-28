@@ -1,9 +1,10 @@
 # Set Defaule User
 export DEFAULT_USER=chris
 # Set up aliases
-#alias ls="ls --color"
+alias ls="ls --color"
 #alias ll="ls -al --color"
-alias ls="tyls"
+# For E terminal
+#alias ls="tyls"
 # History Size and Location
 export HISTSIZE=500
 export HISTFILE="$HOME/.zsh_history"
