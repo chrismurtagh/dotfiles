@@ -13,8 +13,8 @@ gaps inner 10
 gaps outer 5
 smart_gaps on
 
-exec feh --bg-scale /home/chris/Pictures/luxury.jpg
-exec xcompmgr -c -f -n
+exec --no-startup-id feh --bg-scale /home/chris/Pictures/luxury.jpg
+exec --no-startup-id xcompmgr -c -f -n
 
 ########################################
 
