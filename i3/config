@@ -52,6 +52,9 @@ bindsym $mod+Return exec /usr/bin/terminology
 # kill focused window
 bindsym $mod+Shift+q kill
 
+# lock screen
+bindsym $mod+c exec i3lock -c 000000
+
 # start dmenu (a program launcher)
 bindsym $mod+d exec dmenu_run
 # There also is the (new) i3-dmenu-desktop which only displays applications
