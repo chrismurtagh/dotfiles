@@ -21,6 +21,7 @@ exec --no-startup-id picom --daemon
 #exec --no-startup-id xrandr --output eDP-1-1 --mode 1920x1080
 exec --no-startup-id xrandr --output eDP-1 --mode 2560x1600
 exec --no-startup-id gentoo-pipewire-launcher
+exec --no-startup-id /usr/bin/xss-lock -- /usr/bin/i3lock -n -ti /home/chris/.config/i3/images/redRazer.png
 exec --no-startup-id feh --bg-scale /home/chris/.config/i3/images/redRazer.png
 exec --no-startup-id polybar i3top
 exec --no-startup-id dunst
@@ -72,13 +73,13 @@ bindsym $mod+d exec rofi -show run
 
 # lock screen
 #bindsym $mod+c exec i3lock -e -f -c 000000
-bindsym $mod+c exec --no-startup-id i3lock -n -ti /home/chris/.config/i3/images/17478.png
+bindsym $mod+c exec --no-startup-id i3lock -n -ti /home/chris/.config/i3/images/redRazer.png
 
 # suspend system
-bindsym $mod+C+s exec --no-startup-id loginctl suspend && i3lock -n -ti /home/chris/.config/i3/images/17478.png
+bindsym $mod+p exec --no-startup-id loginctl suspend 
 
 # hibernate system
-bindsym $mod+C+h exec --no-startup-id loginctl hibernate && i3lock -n -ti /home/chris/.config/i3/images/17478.png
+bindsym $mod+Shift+p exec --no-startup-id loginctl hibernate
 
 # change focus
 bindsym $mod+h focus left
