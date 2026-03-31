@@ -3,10 +3,12 @@
 -- ABOUT : automatically run code on defined events (e.g. save, yank)
 -- ================================================================================================
 
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
 local on_attach = require("utils.lsp").on_attach
 
 vim.lsp.config("lua_ls", {
 	on_attach = on_attach,
+	capabilities = capabilities,
 	settings = {
 		Lua = {
 			diagnostics = {
@@ -27,6 +29,7 @@ local stylua = require("efmls-configs.formatters.stylua")
 
 vim.lsp.config("efm", {
 	on_attach = on_attach,
+	capabilities = capabilities,
 	filetypes = {
 		"lua",
 	},
