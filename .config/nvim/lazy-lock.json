@@ -1,4 +1,5 @@
 {
+  "efmls-configs-nvim": { "branch": "main", "commit": "0b0ca5462a0a9c1233cc8359e64741d7d49fbbe4" },
   "fzf-lua": { "branch": "main", "commit": "c9e7b7bfbd01f949164988ee1684035468e1995c" },
   "lazy.nvim": { "branch": "main", "commit": "306a05526ada86a7b30af95c5cc81ffba93fef97" },
   "lualine.nvim": { "branch": "master", "commit": "47f91c416daef12db467145e16bed5bbfe00add8" },

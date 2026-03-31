@@ -1,48 +1,51 @@
-local lspconfig = require("lspconfig")
+-- ================================================================================================
+-- TITLE : auto-commands
+-- ABOUT : automatically run code on defined events (e.g. save, yank)
+-- ================================================================================================
 
-local on_attach = function(client, bufnr)
-  local keymap = vim.keymap.set
-  local opts = {
-    noremap = true, -- prevent non-recursive mapping
-    silent = true, -- don't print the command to cli
-    buffer = bufnr, -- restrict the keymap to the local buffer number
-  }
+local on_attach = require("utils.lsp").on_attach
 
-  -- native neovim keymaps
-  keymap("n", "<leader>gD", "<cmd>lua vim.lsp.buf.definition()<CR>", opts) -- goto definition
-  keymap("n", "<leader>gS", "<cmd>vsplit | lua vim.lsp.buf.definition()<CR>", opts) -- goto definition in split
-  keymap("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts) -- Code action
-  keymap("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts) -- Rename symbol
-  keymap("n", "<leader>D", "<cmd>lua vim.diagnostic.open_float({ scope = 'line' })<CR>", opts) -- Line diagnostics
-  keymap("n", "<leader>d", "<cmd>lua vim.diagnostic.open_float()<CR>", opts) -- Cursor diagnostics
-  keymap("n", "<leader>pd", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts) -- Previous diagnostics
-  keymap("n", "<leader>nd", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts) -- Next diagnostics
-  keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts) --hover documentation
-
-  -- fzf-lua keymaps
-  keymap("n", "<leader>gd", "<cmd>FzfLua lsp_finder<CR>", opts) --LSP Finder (definition + reference)
-  keymap("n", "<leader>gr", "<cmd>FzfLua lsp_references<CR>", opts) -- Show all references to the symbol under the cursor
-  keymap("n", "<leader>gt", "<cmd>FzfLua lsp_typedefs<CR>", opts) -- Jump to the type definition of the symbol under the cursor
-  keymap("n", "<leader>ds", "<cmd>FzfLua lsp_document_symbols<CR>", opts) -- List all symbols (functions, classes, etc.) in the current file
-  keymap("n", "<leader>ws", "<cmd>FzfLua lsp_workspace_symbols<CR>", opts) -- search for any symbol across the entire project/workspace
-  keymap("n", "<leader>gi", "<cmd>FzfLua lsp_implementations<CR>", opts) -- Go to implementation
-end
-
-vim.lsp.config('lua_ls', {
-  on_attach = on_attach,
-  settings = {
-    Lua = {
-      diagnostics = {
-        globals = { "vim" },
-      },
-      workspace = {
-        library = {
-          vim.fn.expand("$VIMRUNTIME/lua"),
-          vim.fn.expand("$XDG_CONFIG_HOME") .. "/nvim/lua"
-        }
-      }
-    }
-  }
+vim.lsp.config("lua_ls", {
+	on_attach = on_attach,
+	settings = {
+		Lua = {
+			diagnostics = {
+				globals = { "vim" },
+			},
+			workspace = {
+				library = {
+					vim.fn.expand("$VIMRUNTIME/lua"),
+					vim.fn.expand("$XDG_CONFIG_HOME") .. "/nvim/lua",
+				},
+			},
+		},
+	},
 })
 
-vim.lsp.enable('lua_ls')
+local luacheck = require("efmls-configs.linters.luacheck")
+local stylua = require("efmls-configs.formatters.stylua")
+
+vim.lsp.config("efm", {
+	on_attach = on_attach,
+	filetypes = {
+		"lua",
+	},
+	init_options = {
+		documentFormatting = true,
+		documentRangeFormatting = true,
+		hover = true,
+		documentSymbol = true,
+		codeAction = true,
+		completion = true,
+	},
+	settings = {
+		languages = {
+			lua = { luacheck, stylua },
+		},
+	},
+})
+
+vim.lsp.enable({
+	"lua_ls",
+	"efm",
+})
