@@ -28,21 +28,21 @@ return {
 			"lua",
 			"markdown",
 			"markdown_inline",
-      "php",
-      "prisma",
+			"php",
+			"prisma",
 			"python",
 			"rust",
 			"svelte",
 			"solidity",
-      "sql",
-      "terraform",
+			"sql",
+			"terraform",
 			"typescript",
 			"vue",
-      "xml",
+			"xml",
 			"yaml",
 		}
-    local auto_install = true
-    local sync_install = false
+		local auto_install = true
+		local sync_install = false
 
 		local config = require("nvim-treesitter.config")
 		local already_installed = config.get_installed()
